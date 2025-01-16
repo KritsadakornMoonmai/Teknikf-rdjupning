@@ -17,12 +17,9 @@ const App: React.FC = () => {
 
   const checkSpamRisk = async (content: string) => {
     try {
-      console.log('Email content being sent:', content);
-      console.log('url', url)
       const response = await axios.post(`${url}/api/predict`, {
         email: content,
       });
-      console.log('Response from Flask API:', response);
       if (response.data && response.data.spam_prob !== undefined) {
         setSpamProbability(response.data.spam_prob);
       } else {
