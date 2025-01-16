@@ -5,7 +5,6 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score, confusion_matrix, precision_score
 from sklearn.preprocessing import LabelEncoder
 import nltk
-nltk.download('punkt_tab')
 nltk.download('punkt')
 nltk.download('stopwords')
 from imblearn.pipeline import Pipeline
