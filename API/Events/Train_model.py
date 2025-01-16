@@ -5,8 +5,11 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score, confusion_matrix, precision_score
 from sklearn.preprocessing import LabelEncoder
 import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
+nltk.data.path.append('nltk_data')  # Set path to a known directory on Render
+
+# Ensure resources are downloaded to this path
+nltk.download('punkt', download_dir='nltk_data')
+nltk.download('stopwords', download_dir='nltk_data')
 from imblearn.pipeline import Pipeline
 from imblearn.over_sampling import SMOTE
 from Events.Preprocess_data import PreprocessData as ppd
