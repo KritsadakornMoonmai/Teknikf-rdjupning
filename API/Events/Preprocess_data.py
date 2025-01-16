@@ -1,6 +1,6 @@
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
-from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.tokenize import word_tokenize
 import string
 import re
 
@@ -19,7 +19,7 @@ class PreprocessData:
                 # Convert to lowercase
                 message = message.lower()
                 # Tokenize
-                tokens = word_tokenize(message)
+                tokens = word_tokenize(message, language='english')
                 # Remove special characters
                 tokens = [re.sub(r'[^a-zA-Z0-9\s]', '', word) for word in tokens]
                 # Remove stop words
