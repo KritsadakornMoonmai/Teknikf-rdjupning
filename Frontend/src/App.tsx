@@ -11,6 +11,8 @@ const App: React.FC = () => {
   const [spamProbability, setSpamProbability] = useState<number | null>(null);
   const url = import.meta.env.VITE_API_URL
 
+  console.log('VITE_API_URL:', url);
+
   const resetEmailContent = () => {
     setEmailContent('')
   };
