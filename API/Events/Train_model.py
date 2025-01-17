@@ -75,7 +75,8 @@ class TrainModel():
             else:
                 print(f"'{email}' is predicted as ham.")
 
-
+        os.makedirs('Data/TrainedData', exist_ok=True)
+        
         joblib.dump(pipeline, 'Data/TrainedData/Model.pkl')
         joblib.dump(tfidv, 'Data/TrainedData/Vectorizer.pkl')
 
