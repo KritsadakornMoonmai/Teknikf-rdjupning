@@ -13,6 +13,7 @@ if not os.path.exists(nltk_data_path):
     os.makedirs(nltk_data_path)
 
 nltk.download('punkt', download_dir=nltk_data_path)
+nltk.download('punkt_tab', download_dir=nltk_data_path)
 nltk.download('stopwords', download_dir=nltk_data_path)
 from imblearn.pipeline import Pipeline
 from imblearn.over_sampling import SMOTE
@@ -78,9 +79,7 @@ class TrainModel():
         joblib.dump(pipeline, 'Data/TrainedData/Model.pkl')
         joblib.dump(tfidv, 'Data/TrainedData/Vectorizer.pkl')
 
-data = pd.read_csv('Data/spam.csv', encoding='latin-1')
-trainModel = TrainModel()
-trainModel.ProcessData(data)
+TrainModel()
     
 
     
