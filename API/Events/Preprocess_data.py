@@ -2,7 +2,7 @@ import os
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
-from nltk.tokenize import PunktTokenizer
+from nltk.tokenize import word_tokenize
 import string
 import re
 
@@ -24,8 +24,7 @@ class PreprocessData:
                 # Convert to lowercase
                 message = message.lower()
                 # Tokenize
-                tokenizer = PunktTokenizer()
-                tokens = tokenizer.tokenize(message)
+                tokens = word_tokenize(message, language='english')
                 # Remove special characters
                 tokens = [re.sub(r'[^a-zA-Z0-9\s]', '', word) for word in tokens]
                 # Remove stop words

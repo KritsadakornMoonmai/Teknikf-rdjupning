@@ -12,7 +12,7 @@ nltk.data.path.append(nltk_data_path)
 if not os.path.exists(nltk_data_path):
     os.makedirs(nltk_data_path)
 
-nltk.download('punkt', download_dir=nltk_data_path)
+nltk.download('punkt_tab', download_dir=nltk_data_path)
 nltk.download('stopwords', download_dir=nltk_data_path)
 from imblearn.pipeline import Pipeline
 from imblearn.over_sampling import SMOTE
