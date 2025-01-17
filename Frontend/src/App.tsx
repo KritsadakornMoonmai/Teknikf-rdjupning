@@ -16,7 +16,6 @@ const App: React.FC = () => {
   };
 
   const checkSpamRisk = async (content: string) => {
-    console.log('VITE_API_URL:', url);
     try {
       const response = await axios.post(`${url}/api/predict`, {
         email: content,
