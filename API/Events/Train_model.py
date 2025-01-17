@@ -11,8 +11,11 @@ nltk.data.path.append(nltk_data_path)
 
 if not os.path.exists(nltk_data_path):
     os.makedirs(nltk_data_path)
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords', download_dir=nltk_data_path)
 
-nltk.download('stopwords', download_dir=nltk_data_path)
 from imblearn.pipeline import Pipeline
 from imblearn.over_sampling import SMOTE
 from Events.Preprocess_data import PreprocessData as ppd
