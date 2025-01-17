@@ -1,3 +1,5 @@
+import os
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
@@ -6,6 +8,9 @@ import re
 
 class PreprocessData:
         def __init__(self):
+                nltk_data_path = os.path.join(os.getcwd(), 'nltk_data')
+                nltk.data.path.append(nltk_data_path)
+
                 self.stemmer = PorterStemmer()
                 self.set_stopwords = set(stopwords.words('english'))
                 self.set_punktation = set(string.punctuation)
