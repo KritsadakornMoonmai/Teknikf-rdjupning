@@ -11,10 +11,11 @@ class FetchModel:
             self.model = None
             self.vectorizer = None
         self.data = pd.read_csv('Data/spam.csv', encoding='latin-1')
+        self.train_model = TrainModel()
 
     def fetch(self):
         if self.model is None or self.vectorizer is None:
-            TrainModel.ProcessData(self.data)
+            self.train_model.ProcessData(self.data)
             self.model = joblib.load('Data/TrainedData/Model.pkl')
             self.vectorizer = joblib.load('Data/TrainedData/Vectorizer.pkl')
 
