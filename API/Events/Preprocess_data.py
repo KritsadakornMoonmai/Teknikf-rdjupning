@@ -2,7 +2,6 @@ import os
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
-from nltk.tokenize import word_tokenize
 import string
 import re
 
@@ -19,12 +18,13 @@ class PreprocessData:
         
         def Stemmings(self, words):
                 return [self.stemmer.stem(word) for word in words]
+
+        def custom_tokenize(self, text):
+                return re.findall(r'\b\w+\b', text.lower())
         
         def Transform_text(self, message):
-                # Convert to lowercase
-                message = message.lower()
                 # Tokenize
-                tokens = word_tokenize(message, language='english')
+                tokens = self.custom_tokenize(message)
                 # Remove special characters
                 tokens = [re.sub(r'[^a-zA-Z0-9\s]', '', word) for word in tokens]
                 # Remove stop words
